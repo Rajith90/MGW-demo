@@ -1,0 +1,41 @@
+---
+openapi: 3.0.0
+info:
+  description: 'This is a service for an online bookstore'
+  version: 1.0.0
+  title: Kindel Book Store
+  termsOfService: http://kindel.io/terms/
+  contact:
+    email: apiteam@kindel.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+tags:
+- name: book
+  description: Everything about your book available in store
+  externalDocs:
+    description: Find out more
+    url: http://kindel.store.io
+x-wso2-basePath: /bookstore/v1
+paths:
+  "/books/list":
+    get:
+      tags:
+      - pet
+      summary: Get the list of books
+      description: Paginated result of books
+      operationId: findbooks
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+      x-wso2-production-endpoints: "#/x-wso2-endpoints/bookList"
+x-wso2-endpoints:
+ - bookList:
+    urls:
+    - http://35.226.63.174:30941
+
+
+
+

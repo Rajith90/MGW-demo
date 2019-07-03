@@ -1,0 +1,22 @@
+[kubernetes]
+  [kubernetes.kubernetesDeployment]
+    enable = true
+    replicas = '2'
+    imagePullPolicy = 'Always'
+    baseImage = 'wso2/wso2micro-gw:3.0.1'
+    image = 'rajithk90/bookstoregateway:3.0.0'
+    buildImage = false
+    push = false
+    env = '{"etcdurl": "http://35.226.63.174:32628","b7a_log_level": "TRACE", "bookList_prod_endpoint_0": "http://34.74.29.143:31494", "bookSearch_prod_endpoint_0": "http://34.74.29.143:30894"}'
+  [kubernetes.kubernetesService]
+    enable = true
+    serviceType = 'NodePort'
+    #port = ''
+  [kubernetes.kubernetesConfigMap]
+    enable = true
+    ballerinaConf = '/Users/rajithroshan/Documents/APIM/demo/conf/micro-gw.conf'
+    #[[kubernetes.kubernetesConfigMap.configMaps]]
+    #    name = ''
+    #    mountPath = ''
+    #    readOnly = false
+    #    data = ['']

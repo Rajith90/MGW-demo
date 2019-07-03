@@ -1,0 +1,30 @@
+[kubernetes]
+  [kubernetes.kubernetesDeployment]
+    enable = true
+    replicas = '2'
+    imagePullPolicy = 'Always'
+    baseImage = 'wso2/wso2micro-gw:3.0.1'
+    image = 'rajithk90/bookstoregateway:3.0.0'
+    buildImage = true
+    push = true
+    env = '{"etcdurl": "http://35.226.63.174:30122","b7a_log_level": "TRACE"}'
+    [kubernetes.kubernetesDeployment.copyFiles]
+      enable = true
+      [[kubernetes.kubernetesDeployment.copyFiles.files]]
+        source = '/Users/rajithroshan/Documents/APIM/demo/trustStores/ballerinaTruststore.p12'
+        target = '/ballerina/runtime/bre/security'
+        isBallerinaConf = false
+  [kubernetes.kubernetesService]
+    enable = true
+    #name = 'petstore_service'
+    #labels = ''
+    serviceType = 'NodePort'
+    #port = ''
+  [kubernetes.kubernetesConfigMap]
+    enable = true
+    ballerinaConf = '/Users/rajithroshan/Documents/APIM/demo/conf/micro-gw.conf'
+    #[[kubernetes.kubernetesConfigMap.configMaps]]
+    #    name = ''
+    #    mountPath = ''
+    #    readOnly = false
+    #    data = ['']

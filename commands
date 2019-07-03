@@ -1,0 +1,3 @@
+docker run -d -v /Users/rajithroshan/Documents/APIM/demo/MGW-Projects/bookstore/target/:/home/exec/ -p 9095:9095 -p 9090:9090 -e project="bookstore"  wso2/wso2micro-gw:3.0.1
+
+docker run -d -v /Users/rajithroshan/Documents/APIM/demo/MGW-Projects/bookstore/target/:/home/exec/ -p 9095:9095 -p 9090:9090 -e project="bookstore"  wso2/wso2micro-gw:3.0.1

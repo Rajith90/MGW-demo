@@ -1,0 +1,33 @@
+curl http://localhost:8080/api/v1/namespaces/kube-system/services/
+curl http://localhost:8080/api/v1/services/
+curl http://localhost:8080/api/v1/namespaces/default/services/books-list
+
+
+curl -L http://35.226.63.174:30122/v3alpha/kv/put -X POST -d '{"key": "cGV0c3RvcmU=", "value": "aHR0cDovL3BldHN0b3JlLnN3YWdnZXIuaW8vdjIv"}'
+
+curl -X GET "https://localhost:9095/bookstore/v1/books/list"   -k -H "Authorization:Bearer $TOKEN"
+
+curl -X GET "https://localhost:9095/bookstore/v1/books/search/Java"   -k -H "Authorization:Bearer $TOKEN"
+
+curl -X GET "https://localhost:9095/bookstore/v1/books/search/Java"   -k -H "Authorization:Bearer $TOKEN" -H "x-auth:wert-234"
+
+curl -X GET "https://35.226.63.174:32247/bookstore/v1/books/list"   -k -H "Authorization:Bearer $TOKEN"
+
+curl -X GET "https://35.226.63.174:32247/bookstore/v1/books/search/Java"   -k -H "Authorization:Bearer $TOKEN" -H "x-auth:wert-234"
+
+curl -X GET "https://34.74.29.143:31622/bookstore/v1/books/list"   -k -H "Authorization:Bearer $TOKEN"
+
+
+Cluster 1 IP : 35.226.63.174
+
+Cluster 2 IP: 34.74.29.143
+
+
+curl --request POST \
+  --url https://dev-4sxt2imb.au.auth0.com/oauth/token \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"hFiUXFkdv209sGZX7iuUt7ZjC1nbUIcV","client_secret":"HiPKWuaIiyhP3Nr2p_NC7l1TEIAbwW7kHgvdpM4yw1yghjBJ98L4dy_ppksA0EUU","audience":"http://org.wso2.apimgt/gateway","grant_type":"client_credentials"}'
+
+
+
+gcloud components update --version 250.0.0
